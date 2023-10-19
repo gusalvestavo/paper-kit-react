@@ -44,7 +44,7 @@
 		"../scss/paper-kit/cards/_card-profile.scss",
 		"../scss/paper-kit/_examples.scss",
 		"../scss/paper-kit/_sections.scss",
-		"../scss/paper-kit/_responsive.scss",
+		"../scss/paper-kit/_sique-logo.scss",
 		"../scss/react/react-differences.scss",
 		"../scss/react/plugins/_plugin-nouislider.scss",
 		"../scss/react/plugins/_plugin-react-bootstrap-switch.scss",

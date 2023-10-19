@@ -8,13 +8,16 @@
     "react": "18.2.0",
     "react-datetime": "3.2.0",
     "react-dom": "18.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "6.11.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
+    "react-spring": "^9.7.3",
     "reactstrap": "8.10.0",
     "sass": "1.62.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "WATCHPACK_POLLING=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

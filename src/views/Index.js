@@ -33,7 +33,7 @@ import SectionProgress from "views/index-sections/SectionProgress.js";
 import SectionNotifications from "views/index-sections/SectionNotifications.js";
 import SectionTypography from "views/index-sections/SectionTypography.js";
 import SectionJavaScript from "views/index-sections/SectionJavaScript.js";
-import SectionCarousel from "views/index-sections/SectionCarousel.js";
+import Carousel from "views/index-sections/Carousel.js";
 import SectionNucleoIcons from "views/index-sections/SectionNucleoIcons.js";
 import SectionDark from "views/index-sections/SectionDark.js";
 import SectionLogin from "views/index-sections/SectionLogin.js";
@@ -60,7 +60,7 @@ function Index() {
         <SectionNotifications />
         <SectionTypography />
         <SectionJavaScript />
-        <SectionCarousel />
+        <Carousel />
         <SectionNucleoIcons />
         <SectionDark />
         <SectionLogin />

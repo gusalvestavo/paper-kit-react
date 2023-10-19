@@ -16,7 +16,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useEffect } from "react";
 
 // reactstrap components
 import {
@@ -34,6 +34,8 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import { useGetContent } from "hooks/cms-content";
+import { cmsBaseUrl } from "constants";
 
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
@@ -41,8 +43,18 @@ import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 
 function LandingPage() {
+  const data = useGetContent("/home?populate=*");
+  const carousel = data.carousel || {};
+  const carouselItemsList = carousel.data || [];
+  const carouselItems = carouselItemsList.map((item) => ({
+    src: `${cmsBaseUrl}${item.attributes.url}`,
+    altText: item.id,
+    caption: item.attributes.name,
+    key: item.id,
+  }));
+
   document.documentElement.classList.remove("nav-open");
-  React.useEffect(() => {
+  useEffect(() => {
     document.body.classList.add("profile-page");
     return function cleanup() {
       document.body.classList.remove("profile-page");
@@ -50,8 +62,8 @@ function LandingPage() {
   });
   return (
     <>
-      <ExamplesNavbar />
-      <LandingPageHeader />
+      <ExamplesNavbar carouselLoaded={!!carouselItems.length} />
+      <LandingPageHeader title={data.top} carouselItems={carouselItems} />
       <div className="main">
         <div className="section text-center">
           <Container>
@@ -150,7 +162,16 @@ function LandingPage() {
             </Row>
           </Container>
         </div>
-        <div className="section section-dark text-center">
+        <div
+          className="section section-dark text-center"
+          style={{
+            backgroundImage:
+              "url(" +
+              require("assets/img/definitive/wooden-background.jpg") +
+              ")",
+            backgroundSize: "cover",
+          }}
+        >
           <Container>
             <h2 className="title">Let's talk about us</h2>
             <Row>

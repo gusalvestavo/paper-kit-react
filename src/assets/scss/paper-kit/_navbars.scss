@@ -8,13 +8,31 @@
   }
 }
 .navbar {
+    padding-top: 8px;
+    padding-bottom: 8px;
     border: $none;
     font-size: $font-size-base;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
-    padding: 0;
     background: $white-color;
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+
+    .navbar-logo {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      transition: flex-direction 0.3s, margin 0.3s;
+
+      & #icon {
+        height: 48px;
+        width: max-content
+      }
+
+      & #caption {
+        height: 32px;
+        width: max-content
+      }
+    }
 
     .navbar-brand {
         font-weight: $font-weight-bold;

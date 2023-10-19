@@ -22,6 +22,7 @@
  * Copyright 2012-2013 Mattia Larentis
  * http://www.apache.org/licenses/LICENSE-2.0
  */
+
 .bootstrap-switch {
   display: inline-block;
   direction: ltr;
@@ -100,7 +101,7 @@
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info {
   color: #fff;
-  background: #51bcda;
+  background: #161313;
 }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success,
@@ -272,7 +273,7 @@
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-info {
-  background-color: #51bcda;
+  background-color: #161313;
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-default {
@@ -458,10 +459,10 @@
   border-color: #51cbce;
 }
 .slider.slider-info .noUi-connect {
-  background-color: #51bcda;
+  background-color: #161313;
 }
 .slider.slider-info .noUi-handle {
-  border-color: #51bcda;
+  border-color: #161313;
 }
 .slider.slider-success .noUi-connect {
   background-color: #6bd098;
@@ -1223,8 +1224,8 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-  background-color: #51bcda;
-  border-color: #51bcda;
+  background-color: #161313;
+  border-color: #161313;
   color: #ffffff;
   opacity: 1;
   filter: alpha(opacity=100);
@@ -1277,7 +1278,7 @@ fieldset[disabled] .btn-info.active {
   border-color: #2ba9cd;
 }
 .btn-info.btn-link {
-  color: #51bcda;
+  color: #161313;
 }
 .btn-info.btn-link:hover,
 .btn-info.btn-link:focus,
@@ -1289,7 +1290,7 @@ fieldset[disabled] .btn-info.active {
   color: #2ba9cd !important;
 }
 .btn-info.btn-link .caret {
-  border-top-color: #51bcda;
+  border-top-color: #161313;
 }
 .btn-info .caret {
   border-top-color: #ffffff;
@@ -1692,8 +1693,8 @@ fieldset[disabled] .btn-outline-success.active {
 }
 
 .btn-outline-info {
-  border-color: #51bcda;
-  color: #51bcda;
+  border-color: #161313;
+  color: #161313;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -1705,9 +1706,9 @@ fieldset[disabled] .btn-outline-success.active {
 .btn-outline-info:active:hover,
 .btn-outline-info.active:focus,
 .show > .btn-outline-info.dropdown-toggle {
-  background-color: #51bcda !important;
+  background-color: #161313 !important;
   color: rgba(255, 255, 255, 0.8);
-  border-color: #51bcda !important;
+  border-color: #161313 !important;
 }
 .btn-outline-info:hover .caret,
 .btn-outline-info:focus .caret,
@@ -1747,7 +1748,7 @@ fieldset[disabled] .btn-outline-info.focus,
 fieldset[disabled] .btn-outline-info:active,
 fieldset[disabled] .btn-outline-info.active {
   background-color: transparent;
-  border-color: #51bcda;
+  border-color: #161313;
 }
 
 .btn-outline-warning {
@@ -2486,7 +2487,7 @@ textarea.form-control {
 }
 
 .progress-bar-info {
-  background-color: #51bcda;
+  background-color: #161313;
 }
 
 .progress-bar-success {
@@ -2524,7 +2525,7 @@ textarea.form-control {
 }
 
 .badge-info {
-  background-color: #51bcda;
+  background-color: #161313;
 }
 
 .badge-success {
@@ -2610,8 +2611,8 @@ textarea.form-control {
 .pagination-info > li:first-child > span,
 .pagination-info > li:last-child > a,
 .pagination-info > li:last-child > span {
-  border: 2px solid #51bcda;
-  color: #51bcda;
+  border: 2px solid #161313;
+  color: #161313;
 }
 
 .nav-pills-info > li.active > a,
@@ -2626,8 +2627,8 @@ textarea.form-control {
 .pagination-info > li.active > span:hover,
 .pagination-info > li.active > a:focus,
 .pagination-info > li.active > span:focus {
-  background-color: #51bcda !important;
-  border-color: #51bcda !important;
+  background-color: #161313 !important;
+  border-color: #161313 !important;
   color: #ffffff;
 }
 
@@ -2742,7 +2743,7 @@ textarea.form-control {
 }
 .nav-text > li.active a,
 .nav-icons > li.active a {
-  color: #51bcda;
+  color: #161313;
 }
 
 .nav-icons > li {
@@ -2770,7 +2771,7 @@ textarea.form-control {
 }
 
 .nav-azure > li.active a {
-  color: #51bcda;
+  color: #161313;
 }
 
 .nav-green > li.active a {
@@ -2830,7 +2831,7 @@ textarea.form-control {
 
 .nav-pills-info .nav-item.show .nav-link,
 .nav-pills-info .nav-link.active {
-  background-color: #51bcda !important;
+  background-color: #161313 !important;
 }
 
 .nav-pills-warning .nav-item.show .nav-link,
@@ -3046,7 +3047,7 @@ blockquote small {
 
 .text-info,
 .text-info:hover {
-  color: #51bcda !important;
+  color: #161313 !important;
 }
 
 .text-success,
@@ -3128,10 +3129,32 @@ body {
   font-size: 14px;
   font-weight: 300;
   font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #ededed #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ededed;
+    border-radius: 12px;
+    border: 2px none #ffffff;
+  }
 }
 
 a {
-  color: #51bcda;
+  color: #161313;
 }
 a:hover,
 a:focus {
@@ -3226,7 +3249,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 
 .ct-azure {
-  color: #51bcda;
+  color: #161313;
 }
 
 .ct-green {
@@ -3377,7 +3400,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 
 .label-info {
-  background-color: #51bcda;
+  background-color: #161313;
 }
 
 .label-success {
@@ -4224,11 +4247,11 @@ License - nucleoapp.com/license/
 }
 
 .nav-pills-info .nav-item .nav-link {
-  border: 1px solid #51bcda !important;
-  color: #51bcda !important;
+  border: 1px solid #161313 !important;
+  color: #161313 !important;
 }
 .nav-pills-info .nav-item .nav-link.active {
-  border: 1px solid #51bcda !important;
+  border: 1px solid #161313 !important;
   color: #ffffff !important;
 }
 
@@ -4256,11 +4279,12 @@ License - nucleoapp.com/license/
 }
 
 .navbar {
+  padding-top: 16px;
+  padding-bottom: 16px;
   border: 0;
   font-size: 14px;
   transition: all 0.4s;
   -webkit-transition: all 0.4s;
-  padding: 0;
   background: #ffffff;
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 }
@@ -5372,7 +5396,7 @@ License - nucleoapp.com/license/
 }
 
 .icon-info {
-  color: #51bcda;
+  color: #161313;
 }
 
 .icon-success {
@@ -5438,15 +5462,7 @@ License - nucleoapp.com/license/
 }
 
 .page-carousel {
-  border-radius: 12px !important;
-  border: none !important;
   width: 100%;
-}
-
-.carousel-inner > .carousel-item > img,
-.carousel-inner > .carousel-item > a > img {
-  border-radius: 12px;
-  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
 }
 
 .carousel-inner .carousel-item img {
@@ -7372,6 +7388,8 @@ License - nucleoapp.com/license/
     background: transparent !important;
   }
   .navbar-translate {
+    padding-top: 16px;
+    padding-bottom: 16px;
     width: 100%;
     position: relative;
     display: flex;
@@ -8121,7 +8139,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .slider.slider-info .noUi-connect,
 .slider.slider-info.noUi-connect {
-  background-color: #51bcda;
+  background-color: #161313;
 }
 
 .slider.slider-success .noUi-connect,
@@ -8659,6 +8677,25 @@ td.rdtYear:hover {
   top: 1px;
   border-width: 0 0.4rem 0.4rem 0.4rem;
   border-bottom-color: #fff;
+}
+
+.logo-loading {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 
+  100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
 }
 
 /*# sourceMappingURL=paper-kit.css.map */

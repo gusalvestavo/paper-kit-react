@@ -16,7 +16,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // nodejs library that concatenates strings
 import classnames from "classnames";
@@ -24,7 +24,6 @@ import classnames from "classnames";
 // reactstrap components
 import {
   Collapse,
-  NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
@@ -34,6 +33,8 @@ import {
 } from "reactstrap";
 
 function ExamplesNavbar() {
+  const [navbarLogoDirection, setNavbarLogoDirection] = useState("column");
+  console.log("======   navbarLogoDirection:", navbarLogoDirection);
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -49,11 +50,13 @@ function ExamplesNavbar() {
         document.body.scrollTop > 299
       ) {
         setNavbarColor("");
+        setNavbarLogoDirection("row");
       } else if (
         document.documentElement.scrollTop < 300 ||
         document.body.scrollTop < 300
       ) {
         setNavbarColor("navbar-transparent");
+        setNavbarLogoDirection("column");
       }
     };
 
@@ -71,15 +74,24 @@ function ExamplesNavbar() {
     >
       <Container>
         <div className="navbar-translate">
-          <NavbarBrand
-            data-placement="bottom"
-            to="/index"
-            target="_blank"
-            title="Coded by Creative Tim"
-            tag={Link}
+          <div
+            className="navbar-logo"
+            style={{ flexDirection: navbarLogoDirection }}
           >
-            Paper Kit 2
-          </NavbarBrand>
+            <img
+              id="icon"
+              src={require("assets/img/definitive/logo/sique-icon.png")}
+              alt="Sique logo"
+              style={{
+                marginRight: navbarLogoDirection === "row" ? -24 : 0,
+              }}
+            />
+            <img
+              id="caption"
+              src={require("assets/img/definitive/logo/sique-caption.png")}
+              alt="Sique caption"
+            />
+          </div>
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {
