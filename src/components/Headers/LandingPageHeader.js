@@ -19,7 +19,6 @@
 import React from "react";
 
 // reactstrap components
-import { Button, Container } from "reactstrap";
 import Carousel from "views/index-sections/Carousel";
 
 // core components
@@ -47,26 +46,6 @@ function LandingPageHeader({ title, carouselItems }) {
     <>
       <Carousel items={carouselItems} />
       <div className="filter" />
-      <Container>
-        <div className="motto text-center">
-          <h1>{title}</h1>
-          <h3>Start designing your landing page here.</h3>
-          <br />
-          <Button
-            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-            className="btn-round mr-1"
-            color="neutral"
-            target="_blank"
-            outline
-          >
-            <i className="fa fa-play" />
-            Watch video
-          </Button>
-          <Button className="btn-round" color="neutral" type="button" outline>
-            Download
-          </Button>
-        </div>
-      </Container>
     </>
   );
 }

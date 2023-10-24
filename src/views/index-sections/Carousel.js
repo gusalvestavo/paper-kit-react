@@ -17,91 +17,36 @@
 
 */
 import React from "react";
+import { isMobile } from "react-device-detect";
+
+import { Carousel as RespCarousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+
+const falseFn = () => false;
 
 // reactstrap components
-import {
-  Carousel as ReactStrapCarousel,
-  CarouselItem,
-  CarouselIndicators,
-} from "reactstrap";
-
 function Carousel({ items = [] }) {
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [animating, setAnimating] = React.useState(false);
-  const onExiting = () => {
-    setAnimating(true);
-  };
-  const onExited = () => {
-    setAnimating(false);
-  };
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  };
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  };
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
   return (
     <>
       {items.length ? (
         <div id="carousel">
           <div className="page-carousel">
-            <ReactStrapCarousel
-              activeIndex={activeIndex}
-              next={next}
-              previous={previous}
-              interval={3000}
+            <RespCarousel
+              renderThumbs={falseFn}
+              emulateTouch
+              infiniteLoop
+              showArrows={!isMobile}
             >
-              <CarouselIndicators
-                items={items}
-                activeIndex={activeIndex}
-                onClickHandler={goToIndex}
-              />
-              {items.map((carouselItem) => {
-                return (
-                  <CarouselItem
-                    onExiting={onExiting}
-                    onExited={onExited}
-                    key={carouselItem.src}
-                  >
-                    <img src={carouselItem.src} alt={carouselItem.altText} />
-                  </CarouselItem>
-                );
-              })}
-              <a
-                className="left carousel-control carousel-control-prev"
-                data-slide="prev"
-                href="#pablo"
-                onClick={(e) => {
-                  e.preventDefault();
-                  previous();
-                }}
-                role="button"
-              >
-                <span className="fa fa-angle-left" />
-                <span className="sr-only">Previous</span>
-              </a>
-              <a
-                className="right carousel-control carousel-control-next"
-                data-slide="next"
-                href="#pablo"
-                onClick={(e) => {
-                  e.preventDefault();
-                  next();
-                }}
-                role="button"
-              >
-                <span className="fa fa-angle-right" />
-                <span className="sr-only">Next</span>
-              </a>
-            </ReactStrapCarousel>
+              {items.map((item) => (
+                <div key={item.src} style={{ height: "100vh", width: "100vw" }}>
+                  <img
+                    src={item.src}
+                    alt={item.altText}
+                    style={{ height: "100vh", objectFit: "cover" }}
+                  />
+                </div>
+              ))}
+            </RespCarousel>
           </div>
         </div>
       ) : (

@@ -34,7 +34,6 @@ import {
 
 function ExamplesNavbar() {
   const [navbarLogoDirection, setNavbarLogoDirection] = useState("column");
-  console.log("======   navbarLogoDirection:", navbarLogoDirection);
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
