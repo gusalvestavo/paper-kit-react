@@ -73,7 +73,8 @@ function ExamplesNavbar() {
     >
       <Container>
         <div className="navbar-translate">
-          <div
+          <Link
+            to="/"
             className="navbar-logo"
             style={{ flexDirection: navbarLogoDirection }}
           >
@@ -90,7 +91,7 @@ function ExamplesNavbar() {
               src={require("assets/img/definitive/logo/sique-caption.png")}
               alt="Sique caption"
             />
-          </div>
+          </Link>
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {
@@ -110,28 +111,14 @@ function ExamplesNavbar() {
         >
           <Nav navbar>
             <NavItem>
-              <NavLink to="/index" tag={Link}>
-                <i className="nc-icon nc-layout-11" /> Components
-              </NavLink>
+              <IconTextNavLink
+                icon="nc-alert-circle-i"
+                text="Sobre a Sique"
+                to="/sobre"
+              />
             </NavItem>
             <NavItem>
-              <NavLink
-                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-examples-navbar"
-                target="_blank"
-              >
-                <i className="nc-icon nc-book-bookmark" /> Documentation
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                data-placement="bottom"
-                href="https://twitter.com/CreativeTim?ref=creativetim"
-                target="_blank"
-                title="Follow us on Twitter"
-              >
-                <i className="fa fa-twitter" />
-                <p className="d-lg-none">Twitter</p>
-              </NavLink>
+              <IconTextNavLink icon="nc-email-85" text="Contato" />
             </NavItem>
             <NavItem>
               <NavLink
@@ -155,32 +142,21 @@ function ExamplesNavbar() {
                 <p className="d-lg-none">Instagram</p>
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink
-                data-placement="bottom"
-                href="https://www.github.com/CreativeTimOfficial?ref=creativetim"
-                target="_blank"
-                title="Star on GitHub"
-              >
-                <i className="fa fa-github" />
-                <p className="d-lg-none">GitHub</p>
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <Button
-                className="btn-round"
-                color="danger"
-                href="https://www.creative-tim.com/product/paper-kit-pro-react?ref=pkr-examples-navbar"
-                target="_blank"
-              >
-                <i className="nc-icon nc-spaceship"></i> Upgrade to Pro
-              </Button>
-            </NavItem>
           </Nav>
         </Collapse>
       </Container>
     </Navbar>
   );
 }
+
+const IconTextNavLink = ({ icon, text, ...props }) => (
+  <NavLink
+    {...props}
+    tag={Link}
+    style={{ display: "flex", alignItems: "center", gap: 4 }}
+  >
+    <i className={`nc-icon ${icon}`} /> {text}
+  </NavLink>
+);
 
 export default ExamplesNavbar;
