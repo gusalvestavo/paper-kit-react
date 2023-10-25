@@ -35,8 +35,7 @@ import {
   Col,
 } from "reactstrap";
 import { isMobile } from "react-device-detect";
-import { useGetContent } from "hooks/cms-content";
-import { cmsBaseUrl } from "constants";
+import { useGetCmsContent } from "hooks/useGetCmsContent";
 
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
@@ -44,16 +43,35 @@ import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
 import SideBlocks from "components/SideBlocks";
 
+const banners = `${isMobile ? "mobile" : "desktop"}Banners`;
+const sideblocks = `${isMobile ? "mobile" : "desktop"}Sideblocks`;
+const query = `
+{
+  home {
+    top
+    mid
+    bottom
+    ${banners} {
+      url
+    }
+    ${sideblocks} {
+      url
+    }
+  }
+}
+`;
+
 function LandingPage() {
-  const data = useGetContent("/home?populate=*");
-  const carousel =
-    (isMobile ? data.mobileCarousel : data.desktopCarousel) || {};
-  const carouselItemsList = carousel.data || [];
-  const carouselItems = carouselItemsList.map((item) => ({
-    src: `${cmsBaseUrl}${item.attributes.url}`,
-    altText: item.id,
-    caption: item.attributes.name,
-    key: item.id,
+  const { data = {}, isLoading } =
+    useGetCmsContent({ query, queryKey: ["home", isMobile] }) || {};
+  const { top, mid, bottom, ...homeData } = data.home || {};
+  const carouselItems = (homeData[banners] || []).map((item) => ({
+    src: item.url,
+    key: item.url,
+  }));
+  const sideblockItems = (homeData[sideblocks] || []).map((item) => ({
+    src: item.url,
+    key: item.url,
   }));
 
   document.documentElement.classList.remove("nav-open");
@@ -68,8 +86,12 @@ function LandingPage() {
   return (
     <>
       <ExamplesNavbar carouselLoaded={!!carouselItems.length} />
-      <LandingPageHeader title={data.top} carouselItems={carouselItems} />
-      <SideBlocks />
+      <LandingPageHeader
+        title={top}
+        carouselItems={carouselItems}
+        isLoading={isLoading}
+      />
+      <SideBlocks sideblockItems={sideblockItems} />
       <div className="main">
         <div className="section text-center">
           <Container>

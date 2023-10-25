@@ -23,7 +23,7 @@ import Carousel from "views/index-sections/Carousel";
 
 // core components
 
-function LandingPageHeader({ title, carouselItems }) {
+function LandingPageHeader({ title, carouselItems, isLoading }) {
   let pageHeader = React.createRef();
 
   React.useEffect(() => {
@@ -44,7 +44,7 @@ function LandingPageHeader({ title, carouselItems }) {
 
   return (
     <>
-      <Carousel items={carouselItems} />
+      <Carousel items={carouselItems} isLoading={isLoading} />
       <div className="filter" />
     </>
   );

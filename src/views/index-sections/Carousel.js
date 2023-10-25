@@ -25,51 +25,52 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const falseFn = () => false;
 
 // reactstrap components
-function Carousel({ items = [] }) {
-  return (
-    <>
-      {items.length ? (
-        <div id="carousel">
-          <div className="page-carousel">
-            <RespCarousel
-              renderThumbs={falseFn}
-              emulateTouch
-              infiniteLoop
-              showArrows={!isMobile}
-            >
-              {items.map((item) => (
-                <div key={item.src} style={{ height: "100vh", width: "100vw" }}>
-                  <img
-                    src={item.src}
-                    alt={item.altText}
-                    style={{ height: "100vh", objectFit: "cover" }}
-                  />
-                </div>
-              ))}
-            </RespCarousel>
-          </div>
+const Carousel = ({ items = [], isLoading }) => (
+  <>
+    {!isLoading ? (
+      <div id="carousel">
+        <div className="page-carousel">
+          <RespCarousel
+            showArrows={!isMobile}
+            renderThumbs={falseFn}
+            showStatus={false}
+            swipeScrollTolerance={10}
+            preventMovementUntilSwipeScrollTolerance
+            emulateTouch
+            infiniteLoop
+          >
+            {items.map((item) => (
+              <div key={item.src} style={{ height: "100vh", width: "100vw" }}>
+                <img
+                  src={item.src}
+                  alt={item.altText}
+                  style={{ height: "100vh", objectFit: "cover" }}
+                />
+              </div>
+            ))}
+          </RespCarousel>
         </div>
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            height: "100vh",
-            background:
-              "radial-gradient(circle, rgba(233,233,233,1) 0%, rgba(121,121,121,0.6727065826330532) 100%)",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            className="logo-loading"
-            id="icon"
-            src={require("assets/img/definitive/logo/sique-centered-icon.png")}
-            alt="Sique logo"
-          />
-        </div>
-      )}
-    </>
-  );
-}
+      </div>
+    ) : (
+      <div
+        style={{
+          display: "flex",
+          height: "100vh",
+          background:
+            "radial-gradient(circle, rgba(233,233,233,1) 0%, rgba(121,121,121,0.6727065826330532) 100%)",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img
+          className="logo-loading"
+          id="icon"
+          src={require("assets/img/definitive/logo/sique-centered-icon.png")}
+          alt="Sique logo"
+        />
+      </div>
+    )}
+  </>
+);
 
 export default Carousel;
