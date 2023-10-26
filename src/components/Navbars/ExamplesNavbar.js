@@ -123,9 +123,9 @@ function ExamplesNavbar() {
             <NavItem>
               <NavLink
                 data-placement="bottom"
-                href="https://www.facebook.com/CreativeTim?ref=creativetim"
+                href="https://www.facebook.com/sique.rs"
                 target="_blank"
-                title="Like us on Facebook"
+                title="Siga-nos no Facebook"
               >
                 <i className="fa fa-facebook-square" />
                 <p className="d-lg-none">Facebook</p>
@@ -134,9 +134,9 @@ function ExamplesNavbar() {
             <NavItem>
               <NavLink
                 data-placement="bottom"
-                href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+                href="https://www.instagram.com/sique.rs"
                 target="_blank"
-                title="Follow us on Instagram"
+                title="Siga-nos no Instagram"
               >
                 <i className="fa fa-instagram" />
                 <p className="d-lg-none">Instagram</p>
