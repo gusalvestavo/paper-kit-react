@@ -20,20 +20,24 @@ const Block = ({ info, emergeFromRight }) => {
       style={{
         overflow: "hidden",
         display: "flex",
+        position: "relative",
         justifyContent: emergeFromRight ? "flex-end" : "flex-start",
         height: isMobile ? 800 : 500,
       }}
     >
+      <div
+        style={{
+          position: "absolute",
+          background: "white",
+          height: "inherit",
+          transition: "width 1s",
+          width: isInViewport || alreadyEmerged ? 0 : "100%",
+        }}
+      ></div>
       <img
         style={{
           objectFit: isMobile ? "contain" : "cover",
           width: isMobile ? "unset" : "100%",
-          transition: "margin 0.5s",
-          ...(emergeFromRight
-            ? { marginRight: isInViewport || alreadyEmerged ? 0 : "100vw" }
-            : {
-                marginLeft: isInViewport || alreadyEmerged ? 0 : "100vw",
-              }),
         }}
         alt="..."
         src={info.src}

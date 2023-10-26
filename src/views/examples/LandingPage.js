@@ -69,9 +69,9 @@ function LandingPage() {
     src: item.url,
     key: item.url,
   }));
-  const sideblockItems = (homeData[sideblocks] || []).map((item) => ({
-    src: item.url,
-    key: item.url,
+  const sideblockItems = (homeData[sideblocks] || []).map(({ url }) => ({
+    src: url,
+    key: url,
   }));
 
   document.documentElement.classList.remove("nav-open");
